@@ -2,7 +2,7 @@ const Song = require('./index.js');
 
 module.exports = {
   song: {
-    get: (callback) => {
+    getLegacy: (callback) => {
       Song.find((err, data) => {
         if (err) {
           console.log('Could not find data in DB')

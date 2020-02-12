@@ -2,8 +2,8 @@ const model = require('./model.js');
 
 module.exports = {
   song: {
-    get: (req, res) => {
-      model.song.get((error, data) => {
+    getLegacy: (req, res) => {
+      model.song.getLegacy((error, data) => {
         if (error) {
           console.log(error);
         } else {
