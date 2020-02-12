@@ -8,7 +8,8 @@ API Routes on Main-Media-Player
 
 - GET `/song/:id`
     - GET a song with a particular ID
-- POST `/song/:id`
+    
+- POST `/song`
     - POST a song to the database
 
 - PUT `/song/:id`
