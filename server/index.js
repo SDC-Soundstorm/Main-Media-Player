@@ -6,6 +6,8 @@ const morgan = require('morgan');
 var compression = require('compression');
 const router = require('./router.js');
 
+const Song = require('../db/index.js');
+
 //serve files from dist
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
@@ -17,6 +19,17 @@ app.use(morgan('dev'));
 
 //JSON requests
 app.use(express.json());
+
+//routes get requests
+app.get('/song', (req, res) => {
+    Song.find((err, data) => {
+        if (err) {
+          res.send()
+        } else {
+          res.send(data)
+        }
+      });
+})
 
 //route all requests
 app.use('/', router);
