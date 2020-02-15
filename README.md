@@ -55,13 +55,11 @@ API Routes on Main-Media-Player
     - UPDATE a song with a particular ID
     - req.body: {
         - _id: Int
-        - any other combination of other params to update
+        - any other combination of information to update about the song
     - }
-    - return: code for success or failure
+    - return: status code for success or failure
 
 - DELETE `/song/:id`
     - DELETE a song with a particular ID
-    - req.body: {
-        - _id: Int
-    - }
-    - return: code for success or failure
+    - req.body: none
+    - return: status code for success or failure

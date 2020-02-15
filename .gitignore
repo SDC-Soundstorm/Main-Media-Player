@@ -3,4 +3,4 @@ client/dist/bundle.js
 config.js
 coverage/
 
-db/seed
+db/seed/csv
