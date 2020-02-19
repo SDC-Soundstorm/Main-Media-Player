@@ -3,4 +3,6 @@ client/dist/bundle.js
 config.js
 coverage/
 
-db/seed/csv
+db/seed/cassandra/csv
+
+db/seed/postgres/csv

@@ -1,0 +1,9 @@
+enter Cassandra shell through docker: 
+docker exec -it 1da031d3a505 cqlsh 
+
+To add timing to queries: 
+tracing on
+
+CREATE KEYSPACE dev_test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'} AND durable_writes = 'true';
+
+COPY songs(id, name, artist, posted, tag, albumName, albumURL, songURL) FROM 'songs.csv' with header=true;

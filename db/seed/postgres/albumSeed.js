@@ -1,4 +1,4 @@
-const writePostgresCSV = require('./generateCSV')
+const writePostgresCSV = require('../generateCSV')
 const artistSeed = require('./artistSeed')
 var faker = require('faker');
 const albumNumber = 2000000
