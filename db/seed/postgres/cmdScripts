@@ -1,29 +1,28 @@
 To enter shell
-docker exec -it 33017bf774a3 psql -U postgres
+docker exec -it pg-docker psql -U postgres
 
 To add timing to queries: 
 \timing
 
 To insert Artists 
 docker cp ./csv/artists.csv 33017bf774a3:/artists.csv
-docker exec -it pg-docker psql -U postgres -a music -c "\COPY artists(id, name) FROM 'artists.csv' DELIMITER ',' CSV HEADER"
+docker exec -it pg-docker psql -U postgres -a music -c "\COPY artists(artist_id, artist_name) FROM 'artists.csv' DELIMITER ',' CSV HEADER"
 
 To insert Albums
 docker cp ./csv/albums.csv 33017bf774a3:/albums.csv
-docker exec -it pg-docker psql -U postgres -a music -c "\COPY albums(id, name, artURL, artistID) FROM 'albums.csv' DELIMITER ',' CSV HEADER"
+docker exec -it pg-docker psql -U postgres -a music -c "\COPY albums(album_id, album_name, album_art_URL, artist_ID) FROM 'albums.csv' DELIMITER ',' CSV HEADER"
 
 To insert songs
 docker cp ./csv/songs.csv 33017bf774a3:/songs.csv
-docker exec -it pg-docker psql -U postgres -a music -c "\COPY songs( name, posted, songURL, albumId, genreId) FROM 'songs.csv' DELIMITER ',' CSV HEADER"
+docker exec -it pg-docker psql -U postgres -a music -c "\COPY songs( song_name, song_posted_percent, song_URL, album_Id, genre_Id) FROM 'songs.csv' DELIMITER ',' CSV HEADER"
 
 To insert comments
 docker cp ./csv/comments.csv 33017bf774a3:/comments.csv
-docker exec -it pg-docker psql -U postgres -a music -c "\COPY comments(id, username, comment, timeStamp, avatarPicURL, songId) FROM 'comments.csv' DELIMITER ',' CSV HEADER"
-docker exec -it pg-docker psql -U postgres -a music -c "\COPY comments(comment, timeStamp, songId, userId) FROM 'comments.csv' DELIMITER ',' CSV HEADER"
+docker exec -it pg-docker psql -U postgres -a music -c "\COPY comments(comment, comment_timeStamp, song_Id, user_Id) FROM 'comments.csv' DELIMITER ',' CSV HEADER"
 
 To insert users 
 docker cp ./csv/users.csv 33017bf774a3:/users.csv 
-docker exec -it pg-docker psql -U postgres -a music -c "\COPY comments(username, avatarPicURL) FROM 'users.csv' DELIMITER ',' CSV HEADER"
+docker exec -it pg-docker psql -U postgres -a music -c "\COPY users(username, avatar_Pic_URL) FROM 'users.csv' DELIMITER ',' CSV HEADER"
 
 To insert genre
 docker cp ./csv/genre.csv 33017bf774a3:/genre.csv 

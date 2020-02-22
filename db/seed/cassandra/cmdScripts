@@ -7,3 +7,5 @@ tracing on
 CREATE KEYSPACE dev_test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'} AND durable_writes = 'true';
 
 COPY songs(id, name, artist, posted, tag, albumName, albumURL, songURL) FROM 'songs.csv' with header=true;
+
+COPY comments_test(id,username,comment,timeStamp,avatarPicURL,songId) FROM 'comments.csv' with header=true

@@ -9,9 +9,9 @@ const filename = './csv/songs.csv'
 
 const dataGenerator = function(index) {
     if (index < albumSeed.albumNumber) {
-        return `${faker.name.findName()},${faker.date.past().toDateString()},https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3,${index+1},${Math.floor(Math.random()*genreSeed.genreNumber+1)}\n`
+        return `${faker.name.findName()},${Math.random()*100},https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3,${index+1},${Math.floor(Math.random()*genreSeed.genreNumber+1)}\n`
     }
-    return `${faker.name.findName()},${faker.date.past().toDateString()},https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3,${Math.floor(Math.random()*albumSeed.albumNumber)+1},${Math.floor(Math.random()*genreSeed.genreNumber+1)}\n`
+    return `${faker.name.findName()},${Math.random()*100},https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3,${Math.floor(Math.random()*albumSeed.albumNumber)+1},${Math.floor(Math.random()*genreSeed.genreNumber+1)}\n`
 
 }
 

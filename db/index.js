@@ -1,31 +1,18 @@
-//mongodb
-var mongoose = require('mongoose');
+const { Pool, Client } = require('pg')
+const postgresInfo = require('./postgresInfo')
 
-//open database @mediaplayer
-mongoose.connect('mongodb://localhost/mediaplayer', {useNewUrlParser: true});
+const pool = new Pool({
+  user: 'postgres',
+  password: postgresInfo.password,
+  host: '18.144.80.194',
+  database: 'music',
+  port: 5432,
+})
 
-//log if opened or not
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('Mediaplayer Databased')
-});
+// pool.query('SELECT * FROM songs WHERE id = 234', (err, res) => {
+//   console.log(err, res)
+//   console.log(res.rows[0])
+//   pool.end()
+// })
 
-//create schema
-const songSchema = mongoose.Schema({
-  name: String,
-  artist: String,
-  posted: { type: Date, default: Date.now },
-  tag: String,
-  runtime: String,
-  albumName: String,
-  albumURL: String,
-  songURL: String,
-  waveformURL: String,
-  comments: [{ id: Number, user: String, comment: String, timeStamp: String, avatarpicURL: String }]
-});
-
-const Song = mongoose.model('Song', songSchema);
-
-
-module.exports = Song;
+module.exports = pool

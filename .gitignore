@@ -6,3 +6,8 @@ coverage/
 db/seed/cassandra/csv
 
 db/seed/postgres/csv
+
+db/postgresInfo.js
+
+server/newRelic.js
+newrelic_agent.log
